@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fillipe Marques | Consultoria Premium</title>
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome (Ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts (Inter para robustez e modernidade) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Configuração da Paleta de Cores no Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            main: '#6B00A9',      // Roxo Principal (Ação)
+                            dark: '#150021',      // Roxo Profundo (Base secundária)
+                            bg: '#121212',        // Preto Fundo (Base primária)
+                            surface: '#1E1E1E',   // Superfície levemente mais clara para cards
+                            text: '#F4F4F4',      // Branco Off-White
+                            muted: '#9CA3AF'      // Cinza para textos de apoio (Harmonia)
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-glow': 'radial-gradient(circle at center, #2a0042 0%, #121212 70%)',
+                        'card-gradient': 'linear-gradient(145deg, #1A1A1A 0%, #121212 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos Personalizados e Animações */
+        body {
+            background-color: #121212;
+            color: #F4F4F4;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Classe para esconder elementos antes do scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Efeito de brilho mais sofisticado nos botões */
+        .btn-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(107, 0, 169, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Tratamento de Imagens P&B */
+        .bw-filter {
+            filter: grayscale(100%) contrast(105%) brightness(90%);
+            transition: filter 0.5s ease;
+        }
+        .bw-filter:hover {
+            filter: grayscale(0%) contrast(100%) brightness(100%);
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B00A9;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HEADER / NAV -->
+    <nav class="fixed w-full z-50 bg-brand-bg/80 backdrop-blur-lg border-b border-white/5 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <!-- Logo Ajustada (Maior que 160px, menor que 300px) -->
+            <img src="img/logo0s.svg" alt="Logo Fillipe Marques" style="width: 210px; height: auto;">
+            
+            <a href="#aplicacao" class="hidden md:inline-block px-6 py-2 text-xs font-semibold tracking-widest uppercase border border-brand-main/50 text-brand-main hover:bg-brand-main hover:text-white transition-all duration-300 rounded-sm">
+                Área do Aluno
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        
+        <!-- Background com Radial Gradient (Harmonia de cor) -->
+        <div class="absolute inset-0 z-0 bg-hero-glow opacity-80 pointer-events-none"></div>
+
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0 mix-blend-overlay opacity-30">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Fillipe Marques Treinando" 
+                 class="w-full h-full object-cover bw-filter">
+            <!-- Gradiente inferior para integrar com a próxima seção -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-[#121212]/50"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <!-- Headline Ajustada -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 reveal drop-shadow-2xl">
+                NÃO EXISTE MÁGICA. <br>
+                EXISTE <span class="text-brand-main text-transparent bg-clip-text bg-gradient-to-r from-brand-main to-purple-400">CIÊNCIA</span> E O MÉTODO CERTO.
+            </h1>
+            
+            <!-- Subheadline Harmonizada (Menor, mais leve e com cor suavizada) -->
+            <p class="text-base md:text-lg text-brand-muted font-light mb-10 max-w-xl mx-auto leading-relaxed reveal delay-200">
+                Consultoria de Treino Premium para quem cansou de promessas vazias. Mais de 10 anos transformando disciplina em estética e saúde de alto nível.
+            </p>
+            
+            <div class="flex flex-col items-center reveal delay-300">
+                <a href="#aplicacao" class="btn-glow bg-brand-main text-white px-10 py-4 text-sm md:text-base font-bold uppercase tracking-widest rounded-sm">
+                    Quero Aplicar para a Consultoria
+                </a>
+                <div class="mt-4 flex items-center gap-2 text-xs text-gray-500 uppercase tracking-widest opacity-80">
+                    <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                    Vagas limitadas para este mês
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator Sutil -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/20">
+            <i class="fa-solid fa-chevron-down text-xl"></i>
+        </div>
+    </section>
+
+    <!-- 2. QUEM É FILLIPE MARQUES (Autoridade) -->
+    <section class="py-24 bg-brand-bg relative">
+        <!-- Elemento decorativo sutil -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-dark/40 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            
+            <!-- Foto Autoridade -->
+            <div class="relative reveal group">
+                <div class="absolute inset-0 border border-brand-main/30 transform translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                <img src="img/lipe.webp" 
+                     alt="Fillipe Marques" 
+                     class="relative z-10 w-full h-auto object-cover grayscale shadow-2xl">
+            </div>
+
+            <!-- Texto -->
+            <div class="reveal delay-200 relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight tracking-tight">
+                    O CLÁSSICO QUE FUNCIONA. <br>
+                    <span class="text-brand-main">A MOTIVAÇÃO QUE VOCÊ PRECISA.</span>
+                </h2>
+                
+                <div class="space-y-6 text-brand-muted font-light leading-relaxed">
+                    <p>
+                        Sou Personal Trainer e Consultor de Treino com mais de uma década de atuação. Minha formação em Educação Física é a base, mas o que me diferencia é a <strong class="text-white font-semibold">aplicação prática do conhecimento</strong>.
+                    </p>
+                    <p>
+                        Meus clientes não buscam atalhos. Eles me procuram por Conhecimento e Resultado. A prova disso é uma taxa de retenção raríssima no mercado: <span class="text-white border-b border-brand-main pb-0.5">100% dos meus alunos atuais estão comigo há mais de 6 meses.</span>
+                    </p>
+                    <div class="pt-4 border-l-2 border-brand-main pl-6 mt-6">
+                        <p class="text-white italic text-lg">
+                            "Eu não vendo sonhos inalcançáveis. Eu vendo a engenharia do movimento aplicada à sua realidade."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. COMO FUNCIONA (Metodologia) -->
+    <section class="py-24 bg-brand-dark relative overflow-hidden">
+        <!-- Luz de fundo sutil para dar volume -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-main/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <span class="text-brand-main text-xs font-bold tracking-[0.2em] uppercase mb-3 block">Metodologia</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white">PRECISÃO CIRÚRGICA. NADA É ALEATÓRIO.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Cards com Gradiente Suave (Card Gradient) -->
+                <!-- Passo 1 -->
+                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-500 reveal delay-100 group hover:-translate-y-1">
+                    <div class="text-white/80 text-3xl mb-6 group-hover:text-brand-main transition-colors">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">1. Diagnóstico</h3>
+                    <p class="text-sm text-brand-muted font-light leading-relaxed">Análise detalhada do seu histórico, rotina e limitações. Nada passa despercebido.</p>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-500 reveal delay-200 group hover:-translate-y-1">
+                    <div class="text-white/80 text-3xl mb-6 group-hover:text-brand-main transition-colors">
+                        <i class="fa-solid fa-chess-board"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">2. Estratégia</h3>
+                    <p class="text-sm text-brand-muted font-light leading-relaxed">Protocolo exclusivo respeitando sua biomecânica. Você saberá o porquê de cada série.</p>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-500 reveal delay-300 group hover:-translate-y-1">
+                    <div class="text-white/80 text-3xl mb-6 group-hover:text-brand-main transition-colors">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">3. Execução</h3>
+                    <p class="text-sm text-brand-muted font-light leading-relaxed">Acesso ao App PrimeCoaching. Treinos na palma da mão com vídeos práticos.</p>
+                </div>
+
+                <!-- Passo 4 -->
+                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-500 reveal delay-400 group hover:-translate-y-1">
+                    <div class="text-white/80 text-3xl mb-6 group-hover:text-brand-main transition-colors">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">4. Ajustes</h3>
+                    <p class="text-sm text-brand-muted font-light leading-relaxed">Monitoramento constante. Ajustamos a rota para evitar o "efeito platô".</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-16 reveal">
+                <a href="#consultoria-premium" class="inline-flex items-center gap-2 text-white border-b border-white/30 pb-1 text-sm font-bold uppercase tracking-wider hover:text-brand-main hover:border-brand-main transition-all">
+                    Ver detalhes da consultoria <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. RESULTADOS REAIS (Prova Social) -->
+    <section class="py-24 bg-brand-bg overflow-hidden border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">A EVOLUÇÃO É A ÚNICA MÉTRICA.</h2>
+            </div>
+
+            <!-- Grid de Resultados -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Resultado 1 -->
+                <div class="relative group h-[450px] reveal delay-100 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1974&auto=format&fit=crop" alt="Resultado Aluno" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div class="h-0.5 w-12 bg-brand-main mb-4"></div>
+                        <p class="text-white font-bold text-lg mb-1">Hipertrofia</p>
+                        <p class="text-gray-400 text-sm font-light">8 Meses de Consultoria</p>
+                    </div>
+                </div>
+                <!-- Resultado 2 -->
+                <div class="relative group h-[450px] reveal delay-200 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070&auto=format&fit=crop" alt="Resultado Aluno" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div class="h-0.5 w-12 bg-brand-main mb-4"></div>
+                        <p class="text-white font-bold text-lg mb-1">Definição Extrema</p>
+                        <p class="text-gray-400 text-sm font-light">1 Ano de Consultoria</p>
+                    </div>
+                </div>
+                <!-- Resultado 3 -->
+                <div class="relative group h-[450px] reveal delay-300 overflow-hidden rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1611672585731-fa10603fb9e0?q=80&w=1974&auto=format&fit=crop" alt="Resultado Aluno" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div class="h-0.5 w-12 bg-brand-main mb-4"></div>
+                        <p class="text-white font-bold text-lg mb-1">Performance & Força</p>
+                        <p class="text-gray-400 text-sm font-light">6 Meses de Consultoria</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Citação de Destaque (Design Clean) -->
+            <div class="max-w-4xl mx-auto bg-[#181818] p-10 rounded-sm border border-white/5 relative reveal">
+                <i class="fa-solid fa-quote-left text-4xl text-brand-main/20 absolute top-8 left-8"></i>
+                <div class="relative z-10 pl-8">
+                    <p class="text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-6 italic">
+                        "O Fillipe não mudou apenas meu corpo, mudou minha mentalidade. Estar com ele há mais de um ano foi o melhor investimento que fiz em mim."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden border border-white/10">
+                             <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div>
+                            <p class="text-white font-bold text-sm tracking-wide">Ricardo S.</p>
+                            <p class="text-brand-main text-xs uppercase font-bold tracking-wider">Aluno Premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. A CONSULTORIA PREMIUM (Oferta) -->
+    <section id="consultoria-premium" class="py-24 bg-brand-dark">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            
+            <div class="reveal">
+                <h2 class="text-3xl font-bold text-white mb-8 leading-tight">
+                    EXPERIÊNCIA INTEGRADA. <br>
+                    <span class="text-brand-main">SUPORTE DE ELITE.</span>
+                </h2>
+                <ul class="space-y-8">
+                    <li class="flex items-start gap-5 group">
+                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
+                        <div>
+                            <strong class="text-white block mb-1 text-lg">Planejamento Integral</strong>
+                            <span class="text-brand-muted font-light text-sm">Estruturação completa baseada em critérios técnicos e biomecânicos.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-5 group">
+                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
+                        <div>
+                            <strong class="text-white block mb-1 text-lg">Personalização Extrema</strong>
+                            <span class="text-brand-muted font-light text-sm">Sem treinos genéricos. Tudo é desenhado para sua anatomia.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-5 group">
+                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
+                        <div>
+                            <strong class="text-white block mb-1 text-lg">Atendimento via WhatsApp</strong>
+                            <span class="text-brand-muted font-light text-sm">Suporte direto comigo para ajustes rápidos e dúvidas diárias.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-5 group">
+                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
+                        <div>
+                            <strong class="text-white block mb-1 text-lg">App PrimeCoaching</strong>
+                            <span class="text-brand-muted font-light text-sm">Tecnologia de ponta. Treino, dieta e feedback em um só lugar.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Imagem do App/Mockup -->
+            <div class="relative reveal delay-200 flex justify-center">
+                <!-- Efeito de brilho atrás do celular -->
+                <div class="absolute inset-0 bg-brand-main/20 blur-3xl rounded-full transform scale-75"></div>
+                
+                <!-- Mockup -->
+                <div class="w-72 h-[550px] border-[10px] border-[#222] rounded-[3.5rem] bg-black shadow-2xl relative overflow-hidden flex items-center justify-center z-10">
+                    <div class="absolute top-0 w-36 h-7 bg-[#222] rounded-b-2xl z-20"></div>
+                    <img src="img/prime-coach.gif" class="absolute inset-0 w-full h-full object-cover opacity-70" alt="App Preview">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end pb-12">
+                        <i class="fa-solid fa-dumbbell text-4xl text-brand-main mb-3 animate-pulse"></i>
+                        <h3 class="font-bold text-white text-xl">PrimeCoaching</h3>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Área do Aluno</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. APLICAÇÃO E LISTA DE ESPERA (Funil) -->
+    <section id="aplicacao" class="py-24 bg-gradient-to-b from-[#181818] to-black relative border-t border-brand-main/20">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            
+            <div class="reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-main/10 border border-brand-main/20 text-brand-main text-xs font-bold uppercase tracking-widest mb-8">
+                    <span class="w-2 h-2 rounded-full bg-brand-main"></span>
+                    Vagas Limitadas
+                </div>
+                
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">
+                    ESTE É UM SERVIÇO EXCLUSIVO.
+                </h2>
+                <p class="text-brand-muted text-lg font-light mb-10 leading-relaxed max-w-2xl mx-auto">
+                    Para manter o padrão de excelência e garantir 100% de retenção, limito drasticamente o número de novos alunos por ciclo.
+                </p>
+                
+                <div class="bg-[#121212] p-10 rounded-sm border border-white/5 text-left mb-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-brand-main"></div>
+                    <h3 class="text-white font-bold mb-6 uppercase text-sm tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-list-check text-brand-main"></i> Processo de Seleção:
+                    </h3>
+                    <ol class="space-y-5 text-gray-400 text-sm md:text-base">
+                        <li class="flex gap-4">
+                            <span class="text-white font-bold text-xl opacity-20">01</span>
+                            <span>Você preenche o formulário de aplicação abaixo com honestidade.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-white font-bold text-xl opacity-20">02</span>
+                            <span>Eu analiso pessoalmente seu perfil, histórico e comprometimento.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-white font-bold text-xl opacity-20">03</span>
+                            <span class="text-white font-medium">Se selecionado(a), você ganha uma Videoconferência Estratégica Gratuita de 30 minutos.</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="mb-6">
+                    <p class="text-xl text-white font-bold mb-6">Está pronta para parar de tentar e começar a conseguir?</p>
+                    
+                    <!-- Botão CTA Final -->
+                    <a href="https://typeform.com/" target="_blank" class="btn-glow block w-full bg-brand-main text-white py-6 rounded-sm text-lg md:text-xl font-bold uppercase tracking-widest hover:bg-purple-800 transition-all shadow-2xl group">
+                        Preencher Aplicação <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                
+                <p class="text-xs text-gray-600 mt-6 flex justify-center items-center gap-2">
+                    <i class="fa-solid fa-lock"></i> Seus dados estão 100% seguros.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer class="bg-black py-16 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            
+            <div class="text-center md:text-left">
+                <!-- LOGO RODAPÉ (Solicitada logo1s) -->
+                <img src="img/logo2s.svg" alt="Logo Fillipe Marques" style="width: 150px;" class="mb-4 mx-auto md:mx-0 opacity-80 hover:opacity-100 transition-opacity">
+                <p class="text-gray-600 text-xs tracking-wide max-w-xs">Compromisso com resultados reais, sustentáveis e alcançáveis.</p>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="https://www.instagram.com/marquesfillipe/" class="text-gray-500 hover:text-white transition-colors text-2xl transform hover:-translate-y-1 duration-300"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.link/11nau5" class="text-gray-500 hover:text-[#25D366] transition-colors text-2xl transform hover:-translate-y-1 duration-300"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+        </div>
+        <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-gray-700 text-[10px] uppercase tracking-wider">Copyright © 2025 Fillipe Marques.</p>
+            <p class="text-gray-700 text-[10px] uppercase tracking-wider">Developed for High Performance.</p>
+        </div>
+    </footer>
+
+    <!-- Script de Animação ao Scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth Scroll para links internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Intersection Observer para animações de entrada
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
