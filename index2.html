@@ -1,569 +1,318 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fillipe Marques | Consultoria Premium</title>
+<div class="haky-shop-container">
+    <div class="haky-shop-grid">
 
-    <!--Favicon-->
-    <link rel="icon" href="img/logo-ico.png" sizes="any">
-    <link rel="icon" type="image/svg+xml" href="img/logo-ico.png">
-    <link rel="apple-touch-icon" href="img/logo-ico.png">
+        <div class="haky-card" id="card-hannya" data-name="Haky x Hannya">
+            <div class="haky-image-container">
+                <span class="haky-view-badge">COSTAS</span>
+                <img src="https://hakyclub.com/wp-content/uploads/2025/12/HAKY-HANNYA.jpg" class="haky-product-img" alt="Haky x Hannya">
+            </div>
+            
+            <div class="haky-card-info">
+                <div class="haky-header">
+                    <h3>HAKY X HANNYA</h3>
+                    <div class="haky-price">
+                        <span class="new-price">R$ 149,90</span>
+                    </div>
+                </div>
+                
+                <div class="haky-controls-inline">
+                    <div class="control-left">
+                        <span class="control-label">COR:</span>
+                        <div class="color-options">
+                            <button class="color-btn black active" onclick="changeColor('hannya', 'Preta')" title="Preta"></button>
+                            <button class="color-btn white" onclick="changeColor('hannya', 'Branca')" title="Branca"></button>
+                        </div>
+                    </div>
+
+                    <div class="control-right">
+                        <div class="view-switch">
+                            <button class="view-link active" onclick="changeView('hannya', 'back')">Costas</button>
+                            <span class="sep">|</span>
+                            <button class="view-link" onclick="changeView('hannya', 'front')">Frente</button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="haky-buy-btn">COMPRAR</a>
+            </div>
+        </div>
+
+        <div class="haky-card" id="card-tiger" data-name="Haky Culture Tiger">
+            <div class="haky-image-container">
+                <span class="haky-view-badge">COSTAS</span>
+                <img src="https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER.jpg" class="haky-product-img" alt="Haky Culture Tiger">
+            </div>
+            
+            <div class="haky-card-info">
+                <div class="haky-header">
+                    <h3>CULTURE TIGER</h3>
+                    <div class="haky-price">
+                        <span class="new-price">R$ 149,90</span>
+                    </div>
+                </div>
+                
+                <div class="haky-controls-inline">
+                    <div class="control-left">
+                        <span class="control-label">COR:</span>
+                        <div class="color-options">
+                            <button class="color-btn black active" onclick="changeColor('tiger', 'Preta')"></button>
+                            <button class="color-btn white" onclick="changeColor('tiger', 'Branca')" title="Branca"></button>
+                        </div>
+                    </div>
+
+                    <div class="control-right">
+                        <div class="view-switch">
+                            <button class="view-link active" onclick="changeView('tiger', 'back')">Costas</button>
+                            <span class="sep">|</span>
+                            <button class="view-link" onclick="changeView('tiger', 'front')">Frente</button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="haky-buy-btn">COMPRAR</a>
+            </div>
+        </div>
+
+        <div class="haky-card" id="card-basic" data-name="Haky Basic">
+            <div class="haky-image-container">
+                <span class="haky-view-badge">FRENTE</span>
+                <img src="https://hakyclub.com/wp-content/uploads/2025/12/HAKY-BASIC.jpg" class="haky-product-img" alt="Haky Basic">
+            </div>
+            
+            <div class="haky-card-info">
+                <div class="haky-header">
+                    <h3>HAKY BASIC</h3>
+                    <div class="haky-price">
+                        <span class="new-price">R$ 149,90</span>
+                    </div>
+                </div>
+                
+                <div class="haky-controls-inline">
+                    <div class="control-left">
+                        <span class="control-label">COR:</span>
+                        <div class="color-options">
+                            <button class="color-btn black active" onclick="changeColor('basic', 'Preta')"></button>
+                            <button class="color-btn white" onclick="changeColor('basic', 'Branca')"></button>
+                        </div>
+                    </div>
+
+                    <div class="control-right">
+                        <div class="view-switch">
+                            <button class="view-link active" onclick="changeView('basic', 'front')">Frente</button>
+                            <span class="sep">|</span>
+                            <button class="view-link" onclick="changeView('basic', 'back')">Costas</button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="haky-buy-btn">COMPRAR</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    /* --- ESTRUTURA GERAL --- */
+    .haky-shop-container { width: 100%; padding: 0; background-color: transparent; font-family: Arial, sans-serif; }
+    .haky-shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; }
+    .haky-card { background: transparent; border: none; display: flex; flex-direction: column; }
+
+    /* --- IMAGEM --- */
+    .haky-image-container { position: relative; width: 100%; padding-top: 100%; background: #0e0e0e; margin-bottom: 12px; border-radius: 4px; overflow: hidden; }
+    .haky-product-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+    .haky-view-badge { position: absolute; top: 10px; left: 10px; background: #9A0404; color: #fff; font-size: 0.7rem; padding: 4px 8px; font-weight: bold; text-transform: uppercase; z-index: 2; border-radius: 2px; }
+
+    /* --- INFO --- */
+    .haky-card-info { padding: 0 5px; }
+    .haky-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .haky-card-info h3 { color: #fff; font-size: 1.1rem; margin: 0; text-transform: uppercase; font-weight: 800; line-height: 1; }
+    .haky-price { text-align: right; }
+    .old-price { display: none; }
+    .new-price { color: #ccc; font-weight: 400; font-size: 1rem; }
+
+    /* --- CONTROLES EM LINHA --- */
+    .haky-controls-inline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #111;
+        border: 1px solid #222;
+        padding: 8px 12px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+    }
+
+    /* Lado Esquerdo: Cores */
+    .control-left { display: flex; align-items: center; gap: 10px; }
+    .control-label { font-size: 0.7rem; color: #666; font-weight: bold; }
+    .color-options { display: flex; gap: 8px; }
     
-    <!-- Tailwind CSS (via CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    .color-btn {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .color-btn.black { background: #000; border: 1px solid #444; }
+    .color-btn.white { background: #fff; border: 1px solid #ccc; }
+    .color-btn.active { transform: scale(1.1); box-shadow: 0 0 0 2px #9A0404; border-color: transparent; }
+
+    /* Lado Direito: Vista (Texto Simples) */
+    .control-right { display: flex; align-items: center; }
+    .view-switch { display: flex; align-items: center; gap: 5px; }
     
-    <!-- Font Awesome (Ícones) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    .view-link {
+        background: none;
+        border: none;
+        color: #555;
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0;
+        transition: 0.2s;
+    }
+    .view-link:hover { color: #fff; }
+    .view-link.active { color: #fff; border-bottom: 1px solid #9A0404; }
+    .sep { color: #333; font-size: 0.7rem; }
 
-    <!-- Google Fonts (Inter para robustez e modernidade) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    /* --- BOTÃO COMPRAR (DESTAQUE VERMELHO) --- */
+    .haky-buy-btn {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        background: #9A0404; /* VERMELHO */
+        color: #fff;          /* TEXTO BRANCO */
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        font-weight: 900;
+        border-radius: 4px;
+        transition: 0.2s;
+        border: none;
+    }
+    .haky-buy-btn:hover { 
+        background: #b30606; 
+        box-shadow: 0 0 15px rgba(154, 4, 4, 0.4);
+    }
 
-    <!-- Configuração da Paleta de Cores no Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            main: '#6B00A9',      // Roxo Principal (Ação)
-                            dark: '#150021',      // Roxo Profundo (Base secundária)
-                            bg: '#121212',        // Preto Fundo (Base primária)
-                            surface: '#1E1E1E',   // Superfície levemente mais clara para cards
-                            text: '#F4F4F4',      // Branco Off-White
-                            muted: '#9CA3AF'      // Cinza para textos de apoio (Harmonia)
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    backgroundImage: {
-                        'hero-glow': 'radial-gradient(circle at center, #2a0042 0%, #121212 70%)',
-                        'card-gradient': 'linear-gradient(145deg, #1A1A1A 0%, #121212 100%)'
-                    }
-                }
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+        .haky-shop-container {
+            /* Adiciona um respiro no final para garantir que o último card não corte */
+            padding-bottom: 60px; 
+        }
+        .haky-shop-grid { grid-template-columns: 1fr; gap: 40px; }
+        .haky-buy-btn { font-size: 1rem; padding: 16px; }
+    }
+</style>
+
+<script>
+    // ⚠️ Configure aqui o link da página do formulário
+    const paginaFormulario = "/finalizar-pedido"; 
+
+    // LINKS ATUALIZADOS COMPLETO
+    const products = {
+        hannya: {
+            Preta: { 
+                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-x-HANNYA-Frente.jpg", 
+                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-HANNYA.jpg" 
+            },
+            Branca: { 
+                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-FRONT-Padrao.jpeg", 
+                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKYA-X-HANNYA-BRANCA-Costas-v2.jpeg" 
+            }
+        },
+        tiger: {
+            Preta: { 
+                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER-Frente.jpg", 
+                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER.jpg" 
+            },
+            Branca: { 
+                // NOVOS LINKS DO TIGRE BRANCO:
+                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-FRONT-Padrao.jpeg", 
+                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER-BRANCA-Costas.jpeg" 
+            }
+        },
+        basic: {
+            Preta: { 
+                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-BASIC.jpg", 
+                back: "https://hakyclub.com/wp-content/uploads/2025/12/costas-sem-estampa.png" 
+            },
+            Branca: { 
+                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-FRONT-Padrao.jpeg", 
+                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-BASIC-BRANCA-Costas.jpeg" 
             }
         }
-    </script>
+    };
 
-    <style>
-        /* Estilos Personalizados e Animações */
-        body {
-            background-color: #121212;
-            color: #F4F4F4;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
+    const state = {
+        hannya: { color: 'Preta', view: 'back' },
+        tiger:  { color: 'Preta', view: 'back' },
+        basic:  { color: 'Preta', view: 'front' }
+    };
 
-        /* Classe para esconder elementos antes do scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
+    window.onload = function() {
+        updateCard('hannya');
+        updateCard('tiger');
+        updateCard('basic');
+    };
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    function updateCard(model) {
+        const card = document.getElementById(`card-${model}`);
+        const s = state[model];
 
-        /* Efeito de brilho mais sofisticado nos botões */
-        .btn-glow {
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-glow:hover {
-            box-shadow: 0 0 30px rgba(107, 0, 169, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Tratamento de Imagens P&B */
-        .bw-filter {
-            filter: grayscale(100%) contrast(105%) brightness(90%);
-            transition: filter 0.5s ease;
-        }
-        .bw-filter:hover {
-            filter: grayscale(0%) contrast(100%) brightness(100%);
-        }
-
-        /* Scrollbar personalizada */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #121212;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6B00A9;
+        // 1. Imagem e Badge
+        const img = card.querySelector('.haky-product-img');
+        const badge = card.querySelector('.haky-view-badge');
+        
+        if(products[model][s.color][s.view]) {
+            img.src = products[model][s.color][s.view];
         }
         
-        /* Accordion Style */
-        .accordion-content {
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-        .accordion-content.active {
-            opacity: 1;
-        }
-    </style>
-</head>
-<body class="antialiased">
+        badge.innerText = s.view === 'front' ? 'FRENTE' : 'COSTAS';
 
-    <!-- HEADER / NAV -->
-    <nav class="fixed w-full z-50 bg-brand-bg/80 backdrop-blur-lg border-b border-white/5 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <!-- Logo Ajustada (Maior que 160px, menor que 300px) -->
-            <img src="img/logo0s.svg" alt="Logo Fillipe Marques" style="width: 210px; height: auto;">
-            
-            <a href="#aplicacao" class="hidden md:inline-block px-6 py-2 text-xs font-semibold tracking-widest uppercase border border-brand-main/50 text-brand-main hover:bg-brand-main hover:text-white transition-all duration-300 rounded-sm">
-                Área do Aluno
-            </a>
-        </div>
-    </nav>
-
-    <!-- 1. HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        
-        <!-- Background com Radial Gradient (Harmonia de cor) -->
-        <div class="absolute inset-0 z-0 bg-hero-glow opacity-80 pointer-events-none"></div>
-
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0 mix-blend-overlay opacity-30">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" 
-                 alt="Fillipe Marques Treinando" 
-                 class="w-full h-full object-cover bw-filter">
-            <!-- Gradiente inferior para integrar com a próxima seção -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-[#121212]/50"></div>
-        </div>
-
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-            <!-- Headline Ajustada -->
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 reveal drop-shadow-2xl">
-                NÃO EXISTE MÁGICA. <br>
-                EXISTE <span class="text-brand-main text-transparent bg-clip-text bg-gradient-to-r from-brand-main to-purple-400">CIÊNCIA</span> E O MÉTODO CERTO.
-            </h1>
-            
-            <!-- Subheadline Harmonizada -->
-            <p class="text-base md:text-lg text-brand-muted font-light mb-10 max-w-xl mx-auto leading-relaxed reveal delay-200">
-                Consultoria de Treino Premium para quem cansou de promessas vazias. Mais de 10 anos transformando disciplina em estética e saúde de alto nível.
-            </p>
-            
-            <div class="flex flex-col items-center reveal delay-300">
-                <a href="#aplicacao" class="btn-glow bg-brand-main text-white px-10 py-4 text-sm md:text-base font-bold uppercase tracking-widest rounded-sm">
-                    Quero Aplicar para a Consultoria
-                </a>
-                <div class="mt-4 flex items-center gap-2 text-xs text-gray-500 uppercase tracking-widest opacity-80">
-                    <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
-                    Vagas limitadas para este mês
-                </div>
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator Sutil -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/20">
-            <i class="fa-solid fa-chevron-down text-xl"></i>
-        </div>
-    </section>
-
-    <!-- 2. NAVEGAÇÃO RÁPIDA (Os 3 Botões Solicitados) -->
-    <section class="py-12 bg-[#151515] border-y border-white/5 relative z-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Botão 1: Como Funciona -->
-                <a href="#como-funciona" class="group bg-card-gradient p-6 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-300 flex items-center gap-4 hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-brand-main/10 rounded-full flex items-center justify-center text-brand-main group-hover:bg-brand-main group-hover:text-white transition-all">
-                        <i class="fa-solid fa-gears text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-bold text-sm uppercase tracking-wide">Como Funciona</h3>
-                        <p class="text-gray-500 text-xs mt-1 group-hover:text-gray-300">Entenda a metodologia</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right ml-auto text-white/20 group-hover:text-brand-main transition-colors"></i>
-                </a>
-
-                <!-- Botão 2: Consultoria Premium -->
-                <a href="#consultoria-premium" class="group bg-card-gradient p-6 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-300 flex items-center gap-4 hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-brand-main/10 rounded-full flex items-center justify-center text-brand-main group-hover:bg-brand-main group-hover:text-white transition-all">
-                        <i class="fa-solid fa-crown text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-bold text-sm uppercase tracking-wide">Consultoria Premium</h3>
-                        <p class="text-gray-500 text-xs mt-1 group-hover:text-gray-300">Lista de espera & Aplicação</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right ml-auto text-white/20 group-hover:text-brand-main transition-colors"></i>
-                </a>
-
-                <!-- Botão 3: Evoluções -->
-                <a href="#resultados" class="group bg-card-gradient p-6 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-300 flex items-center gap-4 hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-brand-main/10 rounded-full flex items-center justify-center text-brand-main group-hover:bg-brand-main group-hover:text-white transition-all">
-                        <i class="fa-solid fa-users-viewfinder text-xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-bold text-sm uppercase tracking-wide">Evoluções Reais</h3>
-                        <p class="text-gray-500 text-xs mt-1 group-hover:text-gray-300">Veja as transformações</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right ml-auto text-white/20 group-hover:text-brand-main transition-colors"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. QUEM É FILLIPE MARQUES (Autoridade) -->
-    <section id="quem-sou" class="py-24 bg-brand-bg relative">
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-dark/40 to-transparent pointer-events-none"></div>
-
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            
-            <div class="relative reveal group">
-                <div class="absolute inset-0 border border-brand-main/30 transform translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
-                <img src="img/lipe.jpeg" 
-                     alt="Fillipe Marques" 
-                     class="relative z-10 w-full h-auto object-cover">
-            </div>
-
-            <div class="reveal delay-200 relative z-10">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight tracking-tight uppercase">
-                    O clássico que funciona,<br>
-                    <span class="text-brand-main">ciência aplicada a prática.</span>
-                </h2>
-                
-                <div class="space-y-6 text-brand-muted font-light leading-relaxed">
-                    <p>
-                        Sou treinador, especialista em definição e hipertrofia muscular, com mais de uma década de atuação mudando vidas. O que me diferencia dos demais, é aqui que você para de “recomeçar” e realmente faz o que já deveria ter feito.
-                    </p>
-                    <p>
-                        Comprometimento ao planejamento totalmente adequado a sua rotina, objetivos, e flexibilidade, criando a adesão necessária para você ter seus resultados com o menor sofrimento.
-                    </p>
-                    <p>
-                        Meus clientes não buscam atalhos. Eles me procuram por Conhecimento e Resultado.
-                    </p>
-                    <div class="pt-4 border-l-2 border-brand-main pl-6 mt-6">
-                        <p class="text-white italic text-lg">
-                            "Não te vendo milagres inalcançáveis, eu te mostro o valor do seu potencial guiado por mim."
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. COMO FUNCIONA (Metodologia Expandida) -->
-    <section id="como-funciona" class="py-24 bg-brand-dark relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-main/5 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <span class="text-brand-main text-xs font-bold tracking-[0.2em] uppercase mb-3 block">Metodologia</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">PRECISÃO CIRÚRGICA. NADA É ALEATÓRIO.</h2>
-                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">A Consultoria Premium foi desenvolvida para oferecer um serviço de excelência, com estratégias personalizadas e acompanhamento próximo.</p>
-            </div>
-
-            <!-- Grid de Pilares -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                <!-- Pilar 1 -->
-                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-300 reveal delay-100">
-                    <div class="text-brand-main text-2xl mb-4"><i class="fa-solid fa-layer-group"></i></div>
-                    <h3 class="text-white font-bold mb-3">Estruturação Completa</h3>
-                    <p class="text-sm text-gray-400 font-light">Planejamento integral, com base em critérios técnicos e foco em resultados sólidos e consistentes.</p>
-                </div>
-                <!-- Pilar 2 -->
-                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-300 reveal delay-200">
-                    <div class="text-brand-main text-2xl mb-4"><i class="fa-solid fa-fingerprint"></i></div>
-                    <h3 class="text-white font-bold mb-3">Exclusividade</h3>
-                    <p class="text-sm text-gray-400 font-light">Estratégias exclusivas, pautadas na sua identidade e rotina. Nada de "receita de bolo".</p>
-                </div>
-                <!-- Pilar 3 -->
-                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-300 reveal delay-300">
-                    <div class="text-brand-main text-2xl mb-4"><i class="fa-solid fa-headset"></i></div>
-                    <h3 class="text-white font-bold mb-3">Atendimento de Alto Nível</h3>
-                    <p class="text-sm text-gray-400 font-light">Suporte humanizado direto comigo. Comunicação clara para garantir orientação precisa.</p>
-                </div>
-                <!-- Pilar 4 -->
-                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-100 reveal delay-100">
-                    <div class="text-brand-main text-2xl mb-4"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <h3 class="text-white font-bold mb-3">App PrimeCoaching</h3>
-                    <p class="text-sm text-gray-400 font-light">Todas as orientações no aplicativo. Facilidade de acesso, ajustes e acompanhamento da evolução.</p>
-                </div>
-                <!-- Pilar 5 -->
-                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-200 reveal delay-200">
-                    <div class="text-brand-main text-2xl mb-4"><i class="fa-solid fa-hand-holding-heart"></i></div>
-                    <h3 class="text-white font-bold mb-3">Compromisso Real</h3>
-                    <p class="text-sm text-gray-400 font-light">Valorização do cliente como princípio. Atendimento que transmite confiança e segurança.</p>
-                </div>
-                <!-- Pilar 6 -->
-                <div class="bg-card-gradient p-8 rounded-sm border border-white/5 hover:border-brand-main/40 transition-all duration-300 reveal delay-300">
-                    <div class="text-brand-main text-2xl mb-4"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
-                    <h3 class="text-white font-bold mb-3">O Recomeço</h3>
-                    <p class="text-sm text-gray-400 font-light">Um ponto de partida para avançar com estratégia. Um processo guiado rumo a um novo patamar.</p>
-                </div>
-            </div>
-
-            <!-- Destaque "Videoconferência" -->
-            <div class="bg-[#181818] border border-brand-main/20 p-8 md:p-12 rounded-sm relative overflow-hidden reveal">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-main/10 rounded-full blur-3xl pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
-                <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold text-white mb-4">Avaliação por Videoconferência</h3>
-                        <p class="text-gray-400 mb-4 leading-relaxed">
-                            Ao entrar para a lista de espera, você garante a oportunidade de participar de uma <strong>videoconferência gratuita de 30 minutos</strong>, onde realizarei uma avaliação completa do seu objetivo, histórico e rotina.
-                        </p>
-                        <p class="text-gray-400 text-sm">
-                            <i class="fa-solid fa-check text-brand-main mr-2"></i> Análise individual e criteriosa.
-                        </p>
-                        <p class="text-gray-400 text-sm mt-2">
-                            <i class="fa-solid fa-check text-brand-main mr-2"></i> Definição do melhor caminho para sua evolução.
-                        </p>
-                    </div>
-                    <div>
-                        <a href="#aplicacao" class="btn-glow inline-block bg-white text-black px-8 py-3 font-bold uppercase tracking-wide rounded-sm hover:bg-gray-200">
-                            Entrar na Lista de Espera
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. RESULTADOS REAIS (Prova Social) -->
-    <section id="resultados" class="py-24 bg-brand-bg overflow-hidden border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">A EVOLUÇÃO É A ÚNICA MÉTRICA.</h2>
-            </div>
-
-            <!-- Grid de Resultados -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <!-- Resultado 1 -->
-                <div class="relative group h-[450px] reveal delay-100 overflow-hidden rounded-sm">
-                    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1974&auto=format&fit=crop" alt="Resultado Aluno" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
-                    <div class="absolute bottom-0 left-0 p-8 w-full">
-                        <div class="h-0.5 w-12 bg-brand-main mb-4"></div>
-                        <p class="text-white font-bold text-lg mb-1">Hipertrofia</p>
-                        <!-- Tempo removido conforme solicitado -->
-                    </div>
-                </div>
-                <!-- Resultado 2 -->
-                <div class="relative group h-[450px] reveal delay-200 overflow-hidden rounded-sm">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070&auto=format&fit=crop" alt="Resultado Aluno" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
-                    <div class="absolute bottom-0 left-0 p-8 w-full">
-                        <div class="h-0.5 w-12 bg-brand-main mb-4"></div>
-                        <p class="text-white font-bold text-lg mb-1">Definição Extrema</p>
-                    </div>
-                </div>
-                <!-- Resultado 3 -->
-                <div class="relative group h-[450px] reveal delay-300 overflow-hidden rounded-sm">
-                    <img src="https://images.unsplash.com/photo-1611672585731-fa10603fb9e0?q=80&w=1974&auto=format&fit=crop" alt="Resultado Aluno" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
-                    <div class="absolute bottom-0 left-0 p-8 w-full">
-                        <div class="h-0.5 w-12 bg-brand-main mb-4"></div>
-                        <p class="text-white font-bold text-lg mb-1">Performance & Força</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mb-16 reveal">
-                 <a href="#" class="inline-flex items-center gap-2 px-8 py-3 border border-brand-main/50 text-brand-main font-bold uppercase tracking-widest hover:bg-brand-main hover:text-white transition-all rounded-sm">
-                    Ver Mais Evoluções <i class="fa-solid fa-arrow-right"></i>
-                 </a>
-            </div>
-
-            <!-- Citação de Destaque -->
-            <div class="max-w-4xl mx-auto bg-[#181818] p-10 rounded-sm border border-white/5 relative reveal">
-                <i class="fa-solid fa-quote-left text-4xl text-brand-main/20 absolute top-8 left-8"></i>
-                <div class="relative z-10 pl-8">
-                    <p class="text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-6 italic">
-                        "O Fillipe não mudou apenas meu corpo, mudou minha mentalidade. Estar com ele há mais de um ano foi o melhor investimento que fiz em mim."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden border border-white/10">
-                             <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-full h-full object-cover grayscale">
-                        </div>
-                        <div>
-                            <p class="text-white font-bold text-sm tracking-wide">Ricardo S.</p>
-                            <p class="text-brand-main text-xs uppercase font-bold tracking-wider">Aluno Premium</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. A CONSULTORIA PREMIUM (Oferta) -->
-    <section id="consultoria-premium" class="py-24 bg-brand-dark">
-        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            
-            <div class="reveal">
-                <h2 class="text-3xl font-bold text-white mb-8 leading-tight">
-                    EXPERIÊNCIA INTEGRADA. <br>
-                    <span class="text-brand-main">SUPORTE DE ELITE.</span>
-                </h2>
-                <ul class="space-y-8">
-                    <li class="flex items-start gap-5 group">
-                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
-                        <div>
-                            <strong class="text-white block mb-1 text-lg">Planejamento Integral</strong>
-                            <span class="text-brand-muted font-light text-sm">Estruturação completa baseada em critérios técnicos e biomecânicos.</span>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-5 group">
-                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
-                        <div>
-                            <strong class="text-white block mb-1 text-lg">Personalização Extrema</strong>
-                            <!-- Alteração solicitada aplicada aqui -->
-                            <span class="text-brand-muted font-light text-sm">Sem treinos genéricos. Tudo é planejado para sua capacidade.</span>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-5 group">
-                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
-                        <div>
-                            <strong class="text-white block mb-1 text-lg">Atendimento via WhatsApp</strong>
-                            <span class="text-brand-muted font-light text-sm">Suporte direto comigo para ajustes rápidos e dúvidas diárias.</span>
-                        </div>
-                    </li>
-                    <li class="flex items-start gap-5 group">
-                        <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
-                        <div>
-                            <strong class="text-white block mb-1 text-lg">App PrimeCoaching</strong>
-                            <span class="text-brand-muted font-light text-sm">Tecnologia de ponta. Treino, dieta e feedback em um só lugar.</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Imagem do App/Mockup -->
-            <div class="relative reveal delay-200 flex justify-center">
-                <div class="absolute inset-0 bg-brand-main/20 blur-3xl rounded-full transform scale-75"></div>
-                
-                <div class="w-72 h-[550px] border-[10px] border-[#222] rounded-[3.5rem] bg-black shadow-2xl relative overflow-hidden flex items-center justify-center z-10">
-                    <div class="absolute top-0 w-36 h-7 bg-[#222] rounded-b-2xl z-20"></div>
-                    <img src="img/prime-coach.gif" class="absolute inset-0 w-full h-full object-cover opacity-70" alt="App Preview">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end pb-12">
-                        <i class="fa-solid fa-dumbbell text-4xl text-brand-main mb-3 animate-pulse"></i>
-                        <h3 class="font-bold text-white text-xl">PrimeCoaching</h3>
-                        <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Área do Aluno</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. APLICAÇÃO E LISTA DE ESPERA (Funil) -->
-    <section id="aplicacao" class="py-24 bg-gradient-to-b from-[#181818] to-black relative border-t border-brand-main/20">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            
-            <div class="reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-main/10 border border-brand-main/20 text-brand-main text-xs font-bold uppercase tracking-widest mb-8">
-                    <span class="w-2 h-2 rounded-full bg-brand-main"></span>
-                    Vagas Limitadas
-                </div>
-                
-                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">
-                    LISTA DE ESPERA E APLICAÇÃO
-                </h2>
-                <p class="text-brand-muted text-lg font-light mb-10 leading-relaxed max-w-2xl mx-auto">
-                    Por se tratar de um serviço altamente exclusivo, as vagas são limitadas e cada aplicação é analisada com máximo rigor.
-                </p>
-                
-                <div class="bg-[#121212] p-10 rounded-sm border border-white/5 text-left mb-12 shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-brand-main"></div>
-                    <h3 class="text-white font-bold mb-6 uppercase text-sm tracking-widest flex items-center gap-2">
-                        <i class="fa-solid fa-list-check text-brand-main"></i> Processo de Seleção:
-                    </h3>
-                    <ol class="space-y-5 text-gray-400 text-sm md:text-base">
-                        <li class="flex gap-4">
-                            <span class="text-white font-bold text-xl opacity-20">01</span>
-                            <span>Preencha o formulário com dados reais sobre sua rotina e objetivos.</span>
-                        </li>
-                        <li class="flex gap-4">
-                            <span class="text-white font-bold text-xl opacity-20">02</span>
-                            <span>Cada candidatura é analisada individualmente por mim.</span>
-                        </li>
-                        <li class="flex gap-4">
-                            <span class="text-white font-bold text-xl opacity-20">03</span>
-                            <span class="text-white font-medium">Se aprovado, entrarei em contato para a videoconferência estratégica gratuita.</span>
-                        </li>
-                    </ol>
-                </div>
-
-                <div class="mb-6">
-                    <p class="text-xl text-white font-bold mb-6">Este pode ser o início do seu recomeço.</p>
-                    
-                    <!-- Botão CTA Final -->
-                    <a href="https://typeform.com/" target="_blank" class="btn-glow block w-full bg-brand-main text-white py-6 rounded-sm text-lg md:text-xl font-bold uppercase tracking-widest hover:bg-purple-800 transition-all shadow-2xl group">
-                        Preencher Aplicação Agora <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-                
-                <p class="text-xs text-gray-600 mt-6 flex justify-center items-center gap-2">
-                    <i class="fa-solid fa-lock"></i> Seus dados estão 100% seguros.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 8. FOOTER -->
-    <footer class="bg-black py-16 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            
-            <div class="text-center md:text-left">
-                <!-- LOGO RODAPÉ (Solicitada logo1s) -->
-                <img src="img/logo2s.svg" alt="Logo Fillipe Marques" style="width: 150px;" class="mb-4 mx-auto md:mx-0 opacity-80 hover:opacity-100 transition-opacity">
-                <p class="text-gray-600 text-xs tracking-wide max-w-xs">Compromisso com resultados reais, sustentáveis e alcançáveis.</p>
-            </div>
-
-            <div class="flex gap-8">
-                <a href="https://www.instagram.com/marquesfillipe/" class="text-gray-500 hover:text-white transition-colors text-2xl transform hover:-translate-y-1 duration-300"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.link/11nau5" class="text-gray-500 hover:text-[#25D366] transition-colors text-2xl transform hover:-translate-y-1 duration-300"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-
-        </div>
-        <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-            <p class="text-gray-700 text-[10px] uppercase tracking-wider">Copyright © 2025 Fillipe Marques.</p>
-            <p class="text-gray-700 text-[10px] uppercase tracking-wider">Developed for High Performance.</p>
-        </div>
-    </footer>
-
-    <!-- Script de Animação ao Scroll -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth Scroll para links internos
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Intersection Observer para animações de entrada
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, observerOptions);
-
-            const revealElements = document.querySelectorAll('.reveal');
-            revealElements.forEach(el => observer.observe(el));
+        // 2. Cores Ativas
+        card.querySelectorAll('.color-btn').forEach(btn => {
+            btn.classList.remove('active');
+            const btnAction = btn.getAttribute('onclick');
+            if(btnAction.includes(s.color)) btn.classList.add('active');
         });
-    </script>
-</body>
-</html>
+
+        // 3. Vista Ativa
+        card.querySelectorAll('.view-link').forEach(btn => {
+            const btnAction = btn.getAttribute('onclick');
+            if(btnAction.includes(s.view)) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // 4. Link de Compra
+        updateLink(model);
+    }
+
+    function updateLink(model) {
+        const card = document.getElementById(`card-${model}`);
+        const btn = card.querySelector('.haky-buy-btn');
+        const s = state[model];
+        
+        const nomeProduto = card.getAttribute('data-name');
+        const urlFinal = `${paginaFormulario}?modelo=${encodeURIComponent(nomeProduto)}&cor=${encodeURIComponent(s.color)}`;
+        btn.href = urlFinal;
+    }
+
+    function changeColor(model, color) {
+        state[model].color = color;
+        updateCard(model);
+    }
+
+    function changeView(model, view) {
+        state[model].view = view;
+        updateCard(model);
+    }
+</script>
