@@ -112,6 +112,16 @@
         .accordion-content.active {
             opacity: 1;
         }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -338,8 +348,8 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">A EVOLUÇÃO É A ÚNICA MÉTRICA.</h2>
             </div>
 
-            <!-- Grid de Resultados -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <!-- Grid de Resultados (Destaques Estáticos) -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <!-- Resultado 1 -->
                 <div class="relative group h-[450px] reveal delay-100 overflow-hidden rounded-sm">
                     <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1974&auto=format&fit=crop" alt="Resultado Aluno" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105">
@@ -347,7 +357,6 @@
                     <div class="absolute bottom-0 left-0 p-8 w-full">
                         <div class="h-0.5 w-12 bg-brand-main mb-4"></div>
                         <p class="text-white font-bold text-lg mb-1">Hipertrofia</p>
-                        <!-- Tempo removido conforme solicitado -->
                     </div>
                 </div>
                 <!-- Resultado 2 -->
@@ -370,9 +379,81 @@
                 </div>
             </div>
 
+            <!-- CARROSSEL DE EVOLUÇÕES (NOVO) -->
+            <div class="mb-12 reveal">
+                <div class="text-center mb-8">
+                    <p class="text-brand-muted text-sm uppercase tracking-widest font-semibold">Galeria de Resultados</p>
+                </div>
+                
+                <div class="relative w-full max-w-6xl mx-auto group">
+                    <!-- Botão Esquerda -->
+                    <button onclick="scrollSlider(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-brand-main text-white p-3 rounded-r-md backdrop-blur-sm transition-all hidden md:block opacity-0 group-hover:opacity-100 border border-white/10">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Slider Container -->
+                    <div id="evolution-slider" class="flex overflow-x-auto gap-4 py-4 px-2 snap-x snap-mandatory scroll-smooth no-scrollbar">
+                        <!-- Imagem 1 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/1.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 1">
+                        </div>
+                        <!-- Imagem 2 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/2.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 2">
+                        </div>
+                        <!-- Imagem 3 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/3.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 3">
+                        </div>
+                        <!-- Imagem 4 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/4.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 4">
+                        </div>
+                        <!-- Imagem 5 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/5.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 5">
+                        </div>
+                        <!-- Imagem 6 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/6.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 6">
+                        </div>
+                        <!-- Imagem 7 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/7.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 7">
+                        </div>
+                        <!-- Imagem 8 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/8.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 8">
+                        </div>
+                        <!-- Imagem 9 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/9.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 9">
+                        </div>
+                        <!-- Imagem 10 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/10.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 10">
+                        </div>
+                        <!-- Imagem 11 -->
+                        <div class="snap-center shrink-0 w-[85vw] md:w-[350px] h-[450px] rounded-sm overflow-hidden border border-white/10 relative group/item">
+                            <img src="img/11.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-105" alt="Evolução 11">
+                        </div>
+                    </div>
+
+                    <!-- Botão Direita -->
+                    <button onclick="scrollSlider(1)" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-brand-main text-white p-3 rounded-l-md backdrop-blur-sm transition-all hidden md:block opacity-0 group-hover:opacity-100 border border-white/10">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Indicador mobile -->
+                    <div class="text-center md:hidden mt-2 text-xs text-gray-500 animate-pulse">
+                        <i class="fa-solid fa-arrows-left-right mr-1"></i> Deslize para ver mais
+                    </div>
+                </div>
+            </div>
+
             <div class="text-center mb-16 reveal">
-                 <a href="#" class="inline-flex items-center gap-2 px-8 py-3 border border-brand-main/50 text-brand-main font-bold uppercase tracking-widest hover:bg-brand-main hover:text-white transition-all rounded-sm">
-                    Ver Mais Evoluções <i class="fa-solid fa-arrow-right"></i>
+                 <a href="https://www.instagram.com/marquesfillipe/" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 border border-brand-main/50 text-brand-main font-bold uppercase tracking-widest hover:bg-brand-main hover:text-white transition-all rounded-sm">
+                    Ver Mais Evoluções <i class="fa-brands fa-instagram"></i>
                  </a>
             </div>
 
@@ -381,14 +462,14 @@
                 <i class="fa-solid fa-quote-left text-4xl text-brand-main/20 absolute top-8 left-8"></i>
                 <div class="relative z-10 pl-8">
                     <p class="text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-6 italic">
-                        "O Fillipe não mudou apenas meu corpo, mudou minha mentalidade. Estar com ele há mais de um ano foi o melhor investimento que fiz em mim."
+                        "Antes de trabalhar com você eu já admirava muito o seu trabalho, te acompanhava há um tempo, e depois q eu comecei a trabalhar com você eu só confirmei o que eu já sabia! O resultado do trabalho até aqui foi excelente, super atencioso, e ama o q faz, isso conta muito na sua profissão!" 
                     </p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden border border-white/10">
-                             <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-full h-full object-cover grayscale">
+                             <img src="img/thumb-matheus.webp" class="w-full h-full object-cover grayscale">
                         </div>
                         <div>
-                            <p class="text-white font-bold text-sm tracking-wide">Ricardo S.</p>
+                            <p class="text-white font-bold text-sm tracking-wide">Matheus Silva</p>
                             <p class="text-brand-main text-xs uppercase font-bold tracking-wider">Aluno Premium</p>
                         </div>
                     </div>
@@ -418,7 +499,6 @@
                         <div class="mt-1 text-brand-main group-hover:text-white transition-colors"><i class="fa-solid fa-square-check"></i></div>
                         <div>
                             <strong class="text-white block mb-1 text-lg">Personalização Extrema</strong>
-                            <!-- Alteração solicitada aplicada aqui -->
                             <span class="text-brand-muted font-light text-sm">Sem treinos genéricos. Tudo é planejado para sua capacidade.</span>
                         </div>
                     </li>
@@ -533,8 +613,15 @@
         </div>
     </footer>
 
-    <!-- Script de Animação ao Scroll -->
+    <!-- Script de Animação ao Scroll e Lógica do Carrossel -->
     <script>
+        // Lógica do Carrossel
+        function scrollSlider(direction) {
+            const slider = document.getElementById('evolution-slider');
+            const cardWidth = slider.querySelector('div').offsetWidth + 16; // width + gap
+            slider.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             // Smooth Scroll para links internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
