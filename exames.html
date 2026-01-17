@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Exames | Fillipe Marques</title>
+
+    <link rel="icon" href="img/logo-ico.png" sizes="any">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            main: '#6B00A9',      // Roxo Principal
+                            dark: '#150021',      // Roxo Profundo
+                            bg: '#121212',        // Preto Fundo
+                            surface: '#1E1E1E',   // Superfície
+                            text: '#F4F4F4',      // Branco Off-White
+                            muted: '#9CA3AF'      // Cinza apoio
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'card-gradient': 'linear-gradient(145deg, #1A1A1A 0%, #121212 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos Gerais */
+        body {
+            background-color: #121212;
+            color: #F4F4F4;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Animação suave */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Checkbox Style (Visual apenas) */
+        .check-icon {
+            color: #6B00A9;
+            background: rgba(107, 0, 169, 0.1);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            flex-shrink: 0; /* Evita amassar o ícone */
+        }
+        
+        .exam-item:hover .check-icon {
+            background: #6B00A9;
+            color: white;
+            box-shadow: 0 0 10px rgba(107, 0, 169, 0.6);
+        }
+
+        /* --- ESTILOS DE IMPRESSÃO (CORREÇÕES) --- */
+        @media print {
+            @page {
+                margin: 1.5cm; /* Margem da folha A4 */
+                size: portrait;
+            }
+
+            body {
+                background-color: white !important;
+                color: #222 !important;
+                font-size: 11pt; /* Reduz a fonte geral */
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            /* Esconde elementos desnecessários */
+            .no-print, header p, .print-hidden {
+                display: none !important;
+            }
+            
+            /* Mostra elementos específicos de impressão */
+            .print-only {
+                display: block !important;
+            }
+
+            /* Ajusta o container principal */
+            main.print-border {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: none !important;
+                max-width: 100% !important;
+                page-break-inside: avoid; /* Tenta não quebrar a página no meio */
+            }
+
+            /* Remove decorações de fundo */
+            main .absolute {
+                display: none !important;
+            }
+
+            /* Ajusta o cabeçalho */
+            header {
+                margin-bottom: 1.5rem !important;
+            }
+            header h1 {
+                color: #000 !important;
+                font-size: 1.5rem !important;
+            }
+            /* Troca a logo branca pela escura na impressão */
+            header img.logo-screen { display: none !important; }
+            header img.logo-print { display: block !important; width: 120px !important; height: auto !important; margin-bottom: 10px !important; }
+
+
+            /* Ajusta o título da seção */
+            h2.text-lg {
+                font-size: 1.1rem !important;
+                color: #000 !important;
+                margin-bottom: 1rem !important;
+                padding-bottom: 0.5rem !important;
+                border-color: #ddd !important;
+            }
+            h2 i { color: #333 !important; } /* Ícone do título preto */
+
+            /* Ajusta o Grid para sempre ser 3 colunas na impressão e mais compacto */
+            .grid-exams {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 0.8rem 1.5rem !important; /* Reduz espaçamento vertical */
+                display: grid !important;
+            }
+
+            /* Ajusta os itens da lista */
+            .exam-item {
+                padding: 0.2rem 0 !important; /* Remove padding do hover */
+                border-radius: 0 !important;
+                align-items: flex-start !important; /* Alinha ao topo caso quebre linha */
+            }
+            .exam-item:hover { background: none !important; }
+
+            .check-icon {
+                border: 1px solid #999 !important;
+                color: #fff !important; /* Ícone branco */
+                background: #999 !important; /* Fundo cinza para parecer marcado */
+                width: 18px !important; /* Ícone menor */
+                height: 18px !important;
+            }
+            .check-icon i { font-size: 10px !important; } /* Check menor */
+
+            .exam-item span {
+                color: #000 !important;
+                font-size: 10pt !important;
+                font-weight: 600 !important;
+            }
+
+            /* Ajusta o box de aviso final */
+            .mt-10.p-4 {
+                margin-top: 1.5rem !important;
+                padding: 0.8rem !important;
+                border: 1px solid #ccc !important;
+                background-color: #f9f9f9 !important;
+                color: #444 !important;
+            }
+            .mt-10.p-4 i { color: #444 !important; }
+            .text-brand-muted { color: #666 !important; }
+            
+            /* Remove o rodapé */
+            footer.no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center py-10 px-4">
+
+    <header class="text-center mb-10 fade-in w-full max-w-4xl">
+        <div class="inline-block relative mb-4">
+            <img src="img/logo0s.svg" alt="LOGO FILLIPE MARQUES" class="logo-screen h-16 mx-auto opacity-90">
+            
+            <img src="img/logo2.png" alt="LOGO FILLIPE MARQUES" class="logo-print hidden mx-auto" style="width: 120px;">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-bold text-white uppercase tracking-wide">
+            Protocolo de Exames
+        </h1>
+        <p class="text-brand-muted text-sm mt-2 font-light">
+            Lista de referência para acompanhamento e check-up.
+        </p>
+    </header>
+
+    <main class="print-border w-full max-w-4xl bg-[#181818] border border-white/10 rounded-xl p-8 md:p-12 shadow-2xl relative overflow-hidden fade-in" style="animation-delay: 0.1s;">
+        
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-main to-transparent opacity-80"></div>
+        
+        <div class="flex justify-between items-center mb-8 border-b border-white/5 pb-4 print-hidden-border">
+            <h2 class="text-lg text-white font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-file-medical text-brand-main"></i> Exames Solicitados
+            </h2>
+            <button onclick="window.print()" class="no-print text-xs uppercase font-bold tracking-widest text-brand-muted hover:text-white transition-colors flex items-center gap-2 border border-white/10 px-4 py-2 rounded hover:bg-white/5">
+                <i class="fa-solid fa-print"></i> Imprimir Lista / Salvar PDF
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 grid-exams">
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Hemograma Completo</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Triglicerídeos</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Colesterol Total</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">LDL / HDL / VLDL</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Prolactina</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">TSH / T3 / T4</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Cortisol</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Testosterona (Total/Livre)</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">DHT</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">SHBG</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Estradiol</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">TGO / TGP</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Gama GT</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Ureia</span>
+            </div>
+
+            <div class="exam-item flex items-center gap-3 p-3 rounded hover:bg-white/5 transition-colors cursor-default">
+                <div class="check-icon"><i class="fa-solid fa-check text-xs"></i></div>
+                <span class="text-gray-300 text-sm font-medium">Vitamina D</span>
+            </div>
+
+        </div>
+
+        <div class="mt-10 p-4 bg-brand-main/5 border border-brand-main/20 rounded text-center print-box">
+            <p class="text-xs text-brand-muted">
+                <i class="fa-solid fa-circle-info mr-1"></i> 
+                É recomendado realizar os exames em jejum de 8 a 12 horas. Leve este documento ao laboratório.
+            </p>
+        </div>
+
+    </main>
+
+    <footer class="text-center py-8 text-gray-600 text-[10px] uppercase tracking-widest no-print">
+        <p>&copy; 2025 Fillipe Marques.</p>
+    </footer>
+
+</body>
+</html>
