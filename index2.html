@@ -1,318 +1,96 @@
-<div class="haky-shop-container">
-    <div class="haky-shop-grid">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tabela de Preços</title>
+</head>
+<body class="bg-zinc-950 text-white font-sans antialiased py-10 px-4">
 
-        <div class="haky-card" id="card-hannya" data-name="Haky x Hannya">
-            <div class="haky-image-container">
-                <span class="haky-view-badge">COSTAS</span>
-                <img src="https://hakyclub.com/wp-content/uploads/2025/12/HAKY-HANNYA.jpg" class="haky-product-img" alt="Haky x Hannya">
+    <div class="max-w-6xl mx-auto space-y-16">
+        
+        <div class="text-center space-y-4">
+            <h1 class="text-4xl font-bold text-green-500">Planos e Consultorias</h1>
+            <p class="text-zinc-400 max-w-2xl mx-auto">Escolha o nível de acompanhamento ideal para o seu objetivo. Do online ao presencial.</p>
+        </div>
+
+        <div>
+            <div class="flex items-center justify-center mb-8 gap-2">
+                <span class="bg-green-500/10 text-green-400 px-3 py-1 rounded-full text-sm font-semibold tracking-wide uppercase">Online</span>
+                <h2 class="text-2xl font-bold">Consultoria Premium</h2>
             </div>
-            
-            <div class="haky-card-info">
-                <div class="haky-header">
-                    <h3>HAKY X HANNYA</h3>
-                    <div class="haky-price">
-                        <span class="new-price">R$ 149,90</span>
-                    </div>
-                </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
                 
-                <div class="haky-controls-inline">
-                    <div class="control-left">
-                        <span class="control-label">COR:</span>
-                        <div class="color-options">
-                            <button class="color-btn black active" onclick="changeColor('hannya', 'Preta')" title="Preta"></button>
-                            <button class="color-btn white" onclick="changeColor('hannya', 'Branca')" title="Branca"></button>
+                <div class="bg-zinc-900 border border-green-500/30 rounded-2xl p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-green-600 text-xs font-bold px-3 py-1 rounded-bl-lg">MAIS COMPLETO</div>
+                    <h3 class="text-xl font-bold mb-2">Combo Premium</h3>
+                    <p class="text-zinc-400 text-sm mb-6">Treino + Dieta totalmente personalizados.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-zinc-800 pb-3">
+                            <span class="text-zinc-300">Trimestral (90 dias)</span>
+                            <span class="font-bold text-xl">R$ 1.900</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-zinc-800 pb-3">
+                            <span class="text-zinc-300">Semestral (180 dias)</span>
+                            <span class="font-bold text-xl">R$ 3.180</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-1">
+                            <span class="text-zinc-300">Anual (365 dias)</span>
+                            <span class="font-bold text-xl text-green-400">R$ 4.000</span>
                         </div>
                     </div>
-
-                    <div class="control-right">
-                        <div class="view-switch">
-                            <button class="view-link active" onclick="changeView('hannya', 'back')">Costas</button>
-                            <span class="sep">|</span>
-                            <button class="view-link" onclick="changeView('hannya', 'front')">Frente</button>
-                        </div>
-                    </div>
+                    <button class="w-full mt-6 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition">Começar Agora</button>
                 </div>
 
-                <a href="#" class="haky-buy-btn">COMPRAR</a>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold mb-2">Consultoria Individual</h3>
+                    <p class="text-zinc-400 text-sm mb-6">Escolha entre <span class="text-white">SÓ Treino</span> ou <span class="text-white">SÓ Dieta</span>.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-zinc-800 pb-3">
+                            <span class="text-zinc-300">Trimestral (90 dias)</span>
+                            <span class="font-bold text-xl">R$ 1.000</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-zinc-800 pb-3">
+                            <span class="text-zinc-300">Semestral (180 dias)</span>
+                            <span class="font-bold text-xl">R$ 1.700</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-1">
+                            <span class="text-zinc-300">Anual (365 dias)</span>
+                            <span class="font-bold text-xl">R$ 2.100</span>
+                        </div>
+                    </div>
+                    <button class="w-full mt-6 bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 rounded-lg transition">Escolher Modalidade</button>
+                </div>
+
             </div>
         </div>
 
-        <div class="haky-card" id="card-tiger" data-name="Haky Culture Tiger">
-            <div class="haky-image-container">
-                <span class="haky-view-badge">COSTAS</span>
-                <img src="https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER.jpg" class="haky-product-img" alt="Haky Culture Tiger">
+        <div class="border-t border-zinc-800 pt-10">
+            <div class="flex items-center justify-center mb-8 gap-2">
+                <span class="bg-zinc-800 text-zinc-300 px-3 py-1 rounded-full text-sm font-semibold tracking-wide uppercase">Presencial</span>
+                <h2 class="text-2xl font-bold">Personal Trainer</h2>
             </div>
-            
-            <div class="haky-card-info">
-                <div class="haky-header">
-                    <h3>CULTURE TIGER</h3>
-                    <div class="haky-price">
-                        <span class="new-price">R$ 149,90</span>
-                    </div>
+
+            <div class="max-w-3xl mx-auto bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8 text-center">
+                <p class="text-zinc-400 mb-6">Acompanhamento exclusivo comigo ao seu lado durante os treinos.</p>
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="p-4 bg-zinc-900 rounded-xl border border-zinc-700">
+                        <span class="block text-sm text-zinc-400 mb-1">Plano Mensal</span>
+                        <span class="block text-2xl font-bold text-white">R$ ---,00</span> </div>
+                    <div class="p-4 bg-zinc-900 rounded-xl border border-zinc-700 relative overflow-hidden">
+                        <span class="block text-sm text-zinc-400 mb-1">Plano Trimestral</span>
+                        <span class="block text-2xl font-bold text-white">R$ ---,00</span> </div>
                 </div>
                 
-                <div class="haky-controls-inline">
-                    <div class="control-left">
-                        <span class="control-label">COR:</span>
-                        <div class="color-options">
-                            <button class="color-btn black active" onclick="changeColor('tiger', 'Preta')"></button>
-                            <button class="color-btn white" onclick="changeColor('tiger', 'Branca')" title="Branca"></button>
-                        </div>
-                    </div>
-
-                    <div class="control-right">
-                        <div class="view-switch">
-                            <button class="view-link active" onclick="changeView('tiger', 'back')">Costas</button>
-                            <span class="sep">|</span>
-                            <button class="view-link" onclick="changeView('tiger', 'front')">Frente</button>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#" class="haky-buy-btn">COMPRAR</a>
-            </div>
-        </div>
-
-        <div class="haky-card" id="card-basic" data-name="Haky Basic">
-            <div class="haky-image-container">
-                <span class="haky-view-badge">FRENTE</span>
-                <img src="https://hakyclub.com/wp-content/uploads/2025/12/HAKY-BASIC.jpg" class="haky-product-img" alt="Haky Basic">
-            </div>
-            
-            <div class="haky-card-info">
-                <div class="haky-header">
-                    <h3>HAKY BASIC</h3>
-                    <div class="haky-price">
-                        <span class="new-price">R$ 149,90</span>
-                    </div>
-                </div>
-                
-                <div class="haky-controls-inline">
-                    <div class="control-left">
-                        <span class="control-label">COR:</span>
-                        <div class="color-options">
-                            <button class="color-btn black active" onclick="changeColor('basic', 'Preta')"></button>
-                            <button class="color-btn white" onclick="changeColor('basic', 'Branca')"></button>
-                        </div>
-                    </div>
-
-                    <div class="control-right">
-                        <div class="view-switch">
-                            <button class="view-link active" onclick="changeView('basic', 'front')">Frente</button>
-                            <span class="sep">|</span>
-                            <button class="view-link" onclick="changeView('basic', 'back')">Costas</button>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#" class="haky-buy-btn">COMPRAR</a>
+                <button class="mt-8 px-8 py-3 border border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-bold rounded-lg transition">Verificar Disponibilidade de Horário</button>
             </div>
         </div>
 
     </div>
-</div>
-
-<style>
-    /* --- ESTRUTURA GERAL --- */
-    .haky-shop-container { width: 100%; padding: 0; background-color: transparent; font-family: Arial, sans-serif; }
-    .haky-shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; width: 100%; }
-    .haky-card { background: transparent; border: none; display: flex; flex-direction: column; }
-
-    /* --- IMAGEM --- */
-    .haky-image-container { position: relative; width: 100%; padding-top: 100%; background: #0e0e0e; margin-bottom: 12px; border-radius: 4px; overflow: hidden; }
-    .haky-product-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
-    .haky-view-badge { position: absolute; top: 10px; left: 10px; background: #9A0404; color: #fff; font-size: 0.7rem; padding: 4px 8px; font-weight: bold; text-transform: uppercase; z-index: 2; border-radius: 2px; }
-
-    /* --- INFO --- */
-    .haky-card-info { padding: 0 5px; }
-    .haky-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-    .haky-card-info h3 { color: #fff; font-size: 1.1rem; margin: 0; text-transform: uppercase; font-weight: 800; line-height: 1; }
-    .haky-price { text-align: right; }
-    .old-price { display: none; }
-    .new-price { color: #ccc; font-weight: 400; font-size: 1rem; }
-
-    /* --- CONTROLES EM LINHA --- */
-    .haky-controls-inline {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #111;
-        border: 1px solid #222;
-        padding: 8px 12px;
-        border-radius: 6px;
-        margin-bottom: 15px;
-    }
-
-    /* Lado Esquerdo: Cores */
-    .control-left { display: flex; align-items: center; gap: 10px; }
-    .control-label { font-size: 0.7rem; color: #666; font-weight: bold; }
-    .color-options { display: flex; gap: 8px; }
-    
-    .color-btn {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-    .color-btn.black { background: #000; border: 1px solid #444; }
-    .color-btn.white { background: #fff; border: 1px solid #ccc; }
-    .color-btn.active { transform: scale(1.1); box-shadow: 0 0 0 2px #9A0404; border-color: transparent; }
-
-    /* Lado Direito: Vista (Texto Simples) */
-    .control-right { display: flex; align-items: center; }
-    .view-switch { display: flex; align-items: center; gap: 5px; }
-    
-    .view-link {
-        background: none;
-        border: none;
-        color: #555;
-        font-size: 0.7rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        cursor: pointer;
-        padding: 0;
-        transition: 0.2s;
-    }
-    .view-link:hover { color: #fff; }
-    .view-link.active { color: #fff; border-bottom: 1px solid #9A0404; }
-    .sep { color: #333; font-size: 0.7rem; }
-
-    /* --- BOTÃO COMPRAR (DESTAQUE VERMELHO) --- */
-    .haky-buy-btn {
-        display: block;
-        width: 100%;
-        padding: 14px;
-        background: #9A0404; /* VERMELHO */
-        color: #fff;          /* TEXTO BRANCO */
-        text-decoration: none;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 0.95rem;
-        font-weight: 900;
-        border-radius: 4px;
-        transition: 0.2s;
-        border: none;
-    }
-    .haky-buy-btn:hover { 
-        background: #b30606; 
-        box-shadow: 0 0 15px rgba(154, 4, 4, 0.4);
-    }
-
-    /* MOBILE FIX */
-    @media (max-width: 768px) {
-        .haky-shop-container {
-            /* Adiciona um respiro no final para garantir que o último card não corte */
-            padding-bottom: 60px; 
-        }
-        .haky-shop-grid { grid-template-columns: 1fr; gap: 40px; }
-        .haky-buy-btn { font-size: 1rem; padding: 16px; }
-    }
-</style>
-
-<script>
-    // ⚠️ Configure aqui o link da página do formulário
-    const paginaFormulario = "/finalizar-pedido"; 
-
-    // LINKS ATUALIZADOS COMPLETO
-    const products = {
-        hannya: {
-            Preta: { 
-                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-x-HANNYA-Frente.jpg", 
-                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-HANNYA.jpg" 
-            },
-            Branca: { 
-                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-FRONT-Padrao.jpeg", 
-                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKYA-X-HANNYA-BRANCA-Costas-v2.jpeg" 
-            }
-        },
-        tiger: {
-            Preta: { 
-                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER-Frente.jpg", 
-                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER.jpg" 
-            },
-            Branca: { 
-                // NOVOS LINKS DO TIGRE BRANCO:
-                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-FRONT-Padrao.jpeg", 
-                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-CULTURE-TIGER-BRANCA-Costas.jpeg" 
-            }
-        },
-        basic: {
-            Preta: { 
-                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-BASIC.jpg", 
-                back: "https://hakyclub.com/wp-content/uploads/2025/12/costas-sem-estampa.png" 
-            },
-            Branca: { 
-                front: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-FRONT-Padrao.jpeg", 
-                back: "https://hakyclub.com/wp-content/uploads/2025/12/HAKY-BASIC-BRANCA-Costas.jpeg" 
-            }
-        }
-    };
-
-    const state = {
-        hannya: { color: 'Preta', view: 'back' },
-        tiger:  { color: 'Preta', view: 'back' },
-        basic:  { color: 'Preta', view: 'front' }
-    };
-
-    window.onload = function() {
-        updateCard('hannya');
-        updateCard('tiger');
-        updateCard('basic');
-    };
-
-    function updateCard(model) {
-        const card = document.getElementById(`card-${model}`);
-        const s = state[model];
-
-        // 1. Imagem e Badge
-        const img = card.querySelector('.haky-product-img');
-        const badge = card.querySelector('.haky-view-badge');
-        
-        if(products[model][s.color][s.view]) {
-            img.src = products[model][s.color][s.view];
-        }
-        
-        badge.innerText = s.view === 'front' ? 'FRENTE' : 'COSTAS';
-
-        // 2. Cores Ativas
-        card.querySelectorAll('.color-btn').forEach(btn => {
-            btn.classList.remove('active');
-            const btnAction = btn.getAttribute('onclick');
-            if(btnAction.includes(s.color)) btn.classList.add('active');
-        });
-
-        // 3. Vista Ativa
-        card.querySelectorAll('.view-link').forEach(btn => {
-            const btnAction = btn.getAttribute('onclick');
-            if(btnAction.includes(s.view)) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-
-        // 4. Link de Compra
-        updateLink(model);
-    }
-
-    function updateLink(model) {
-        const card = document.getElementById(`card-${model}`);
-        const btn = card.querySelector('.haky-buy-btn');
-        const s = state[model];
-        
-        const nomeProduto = card.getAttribute('data-name');
-        const urlFinal = `${paginaFormulario}?modelo=${encodeURIComponent(nomeProduto)}&cor=${encodeURIComponent(s.color)}`;
-        btn.href = urlFinal;
-    }
-
-    function changeColor(model, color) {
-        state[model].color = color;
-        updateCard(model);
-    }
-
-    function changeView(model, view) {
-        state[model].view = view;
-        updateCard(model);
-    }
-</script>
+</body>
+</html>
